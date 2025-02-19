@@ -69,32 +69,36 @@ use App\Http\Controllers\PhotoController;
 
 // Controller
 
-Route::get('/hello', [WelcomeController::class, 'hello']);
+// Route::get('/hello', [WelcomeController::class, 'hello']);
 
-Route::get('/', [HomeController::class, 'index']);
-Route::get('/about', [AboutController::class, 'about']);
-Route::get('/articles/{id}', [ArticlesController::class, 'articles']);
+// Route::get('/', [HomeController::class, 'index']);
+// Route::get('/about', [AboutController::class, 'about']);
+// Route::get('/articles/{id}', [ArticlesController::class, 'articles']);
 
-// Resource Controller
+// // Resource Controller
 
-Route::resource('photos', PhotoController::class);
+// Route::resource('photos', PhotoController::class);
 
-Route::resource('photos', PhotoController::class)->only([
-    'index', 'show'
-]);
+// Route::resource('photos', PhotoController::class)->only([
+//     'index', 'show'
+// ]);
 
-Route::resource('photos', PhotoController::class)->except([
-    'create', 'store', 'update', 'destroy'
-]);
+// Route::resource('photos', PhotoController::class)->except([
+//     'create', 'store', 'update', 'destroy'
+// ]);
 
-// View
+// // View
 
-Route::get('/greeting', function () {
-	return view('hello', ['name' => 'Faza']);
-});
+// Route::get('/greeting', function () {
+// 	return view('hello', ['name' => 'Faza']);
+// });
 
-// View dalam direktori
+// // View dalam direktori
 
-Route::get('/greeting', function () {
-	return view('blog.hello', ['name' => 'Zidnafaz']);
-});
+// Route::get('/greeting', function () {
+// 	return view('blog.hello', ['name' => 'Zidnafaz']);
+// });
+
+// View dari Controller
+
+Route::get('/greeting', [WelcomeController::class, 'greeting']);
