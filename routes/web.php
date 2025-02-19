@@ -1,6 +1,9 @@
 <?php
 
+namespace App\Http\Controllers;
+
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -27,41 +30,46 @@ use Illuminate\Support\Facades\Route;
 
 // Jobsheet Langkah-langkah
 
-Route::get('/hello', function () {
-    return 'Hello World';
-});
+// Route::get('/hello', function () {
+//     return 'Hello World';
+// });
 
-Route::get('/world', function () {
-    return 'World';
-});
+// Route::get('/world', function () {
+//     return 'World';
+// });
 
-Route::get('/', function () {
-    return ('Selamat Datang');
-});
+// Route::get('/', function () {
+//     return ('Selamat Datang');
+// });
 
-Route::get('/about', function () {
-    return ('NIM    : 2341760030<br>Nama  : M. Zidna Billah Faza');
-});
+// Route::get('/about', function () {
+//     return ('NIM    : 2341760030<br>Nama  : M. Zidna Billah Faza');
+// });
 
-Route::get('/user/{name}', function ($name) {
-    return 'Nama saya ' . $name;
-});
+// Route::get('/user/{name}', function ($name) {
+//     return 'Nama saya ' . $name;
+// });
 
-Route::get('/posts/{post}/comments/{comment}', function ($postId, $commentId) {
-    return 'Pos ke-' . $postId . " Komentar ke-: " . $commentId;
-});
+// Route::get('/posts/{post}/comments/{comment}', function ($postId, $commentId) {
+//     return 'Pos ke-' . $postId . " Komentar ke-: " . $commentId;
+// });
 
-Route::get('/articles/{id}', function ($id) {
-    return 'Halaman Artikel dengan ID ' . $id;
-});
+// Route::get('/articles/{id}', function ($id) {
+//     return 'Halaman Artikel dengan ID ' . $id;
+// });
 
-Route::get('/user/{name?}', function ($name = null) {
-    return 'Nama saya ' . $name;
-});
+// Route::get('/user/{name?}', function ($name = null) {
+//     return 'Nama saya ' . $name;
+// });
 
-Route::get('/user/{name?}', function ($name = 'John') {
-    return 'Nama saya ' . $name;
-});
+// Route::get('/user/{name?}', function ($name = 'John') {
+//     return 'Nama saya ' . $name;
+// });
 
-// Route Name
+// Controller
 
+Route::get('/hello', [WelcomeController::class, 'hello']);
+
+Route::get('/', [PageController::class, 'index']);
+Route::get('/about', [PageController::class, 'about']);
+Route::get('/articles/{id}', [PageController::class, 'articles']);
